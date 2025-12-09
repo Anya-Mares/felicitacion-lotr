@@ -1,0 +1,164 @@
+/* RESET */
+*{margin:0; padding:0; box-sizing:border-box;}
+
+body{
+  background:#000;
+ font-family: cinzel decorative, serif;
+  color:white;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* Intro */
+.intro{
+  position:absolute;
+  top:40%;
+  width:100%;
+  text-align:center;
+  font-size:2rem;
+  color:orange;
+  opacity:1;
+  animation: fadeOut 3s forwards 2s;
+}
+@keyframes fadeOut{ to {opacity:0; transform:translateY(-20px);} }
+
+/* Partículas */
+.particles{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+.particles span{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:gold;
+  border-radius:50%;
+  opacity:0.7;
+  animation:floatParticle linear infinite;
+}
+@keyframes floatParticle{
+  0%{transform:translate(0,0);opacity:0.7;}
+  100%{transform:translate(200px,-300px);opacity:0;}}
+
+/* Humo */
+.humo{
+  position:absolute;
+  width:120%;
+  height:120%;
+  background:radial-gradient(rgba(200,200,200,0.1),transparent);
+  top:-10%;left:-10%;
+  animation:moveSmoke 15s linear infinite;
+}
+
+@keyframes moveSmoke{
+0%{transform:translateX(0) translateY(0) rotate(0deg);}
+  50%{transform:translateX(30px) translateY(-20px) rotate(2deg);}
+  100%{transform:translateX(-30px) translateY(-40px) rotate(-2deg);}
+}
+
+/* Pantalla inicial */
+.pantalla-inicial{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.boton-anillo{
+  background:none;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.anillo-imagen{
+  width:180px;
+  filter:drop-shadow(0 0 25px rgba(255,215,90,0.6));
+  animation:rotar 8s linear infinite;
+  transition: transform 0.3s ease, filter 0.4s ease;
+}
+.anillo-imagen:hover{
+  transform:scale(1.15);
+  filter:drop-shadow(0 0 40px orange) blur(3px);
+  animation:none;
+}
+@keyframes rotar{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+.texto-click{
+  margin-top:15px;
+  color:#d9b44a;
+  font-size:1.1rem;
+  text-shadow:0 0 10px #000;
+  font-family:'Cinzel Decorative', serif;}
+
+/* Tarjeta pergamino */
+.tarjeta{
+  position:absolute;
+  width:90%;max-width:600px;
+  background:rgba(0,0,0,0.85);
+  border:2px solid #d9b44a;
+  padding:25px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(255,215,90,0.3);
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform 0.8s ease-out;
+  background-image: url('img/pergamino-textura.png'); /* opcional: textura pergamino */
+  background-size:cover;
+
+}
+.tarjeta.abierta{transform:scaleY(1);}
+.oculto{display:none;}
+
+.tarjeta-titulo{
+  color:#d9b44a;
+  font-size:1.8rem;
+  margin-bottom:10px;
+  font-family:'Cinzel Decorative', serif;
+}
+.tarjeta-texto{
+  margin:12px 0;
+  color:#f3e8c8;
+  line-height:1.5;
+  font-family:'Cormorant Garamond', serif;
+}
+.btn-cerrar{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:#d9b44a;
+  color:#000;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:1rem;
+  font-weight:bold;
+  font-family:'Cinzel Decorative', serif;
+}
+
+/* Texto élfico y fuego */
+.elfico{
+  font-family:'Cinzel Decorative', serif;
+  color:#d4af37;
+  letter-spacing:2px;
+  text-shadow:0 0 4px rgba(255,215,0,0.6),0 0 8px rgba(255,215,0,0.4),0 0 14px rgba(255,215,0,0.25);
+  transition:text-shadow 0.4s ease, transform 0.3s ease;
+}
+.elfico:hover{
+  transform:scale(1.04);
+  text-shadow:0 0 6px rgba(255,215,0,0.9),0 0 14px rgba(255,215,0,0.7),0 0 22px rgba(255,215,0,0.4);
+}
+.fuego{
+  color:orange;
+  text-shadow:0 0 5px #ffae42,0 0 10px #ff8000,0 0 20px #ff4000;
+  animation:firePulse 1s infinite alternate;
+}
+@keyframes firePulse{
+  0%{text-shadow:0 0 5px #ffae42,0 0 10px #ff8000,0 0 20px #ff4000;}
+  100%{text-shadow:0 0 15px #ffd27f,0 0 25px #ff9f42,0 0 35px #ff6f00;}}
+
+
+
