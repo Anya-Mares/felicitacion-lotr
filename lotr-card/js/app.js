@@ -38,13 +38,18 @@ function writeElvishText() {
 
 // Crear partículas doradas
 function createParticles(count = 30) {
+  const rect = particlesContainer.getBoundingClientRect();
+
   for (let i = 0; i < count; i++) {
     const span = document.createElement("span");
-    span.style.left = Math.random() * window.innerWidth + "px";
-    span.style.top = Math.random() * window.innerHeight + "px";
+
+    span.style.left = Math.random() * rect.width + "px";
+    span.style.top = Math.random() * rect.height + "px";
+
     span.style.animationDuration = (5 + Math.random() * 10) + "s";
     span.style.width = span.style.height = (2 + Math.random() * 4) + "px";
     span.style.animationDelay = (Math.random() * 5) + "s";
+    
     particlesContainer.appendChild(span);
   }
 }
@@ -83,6 +88,7 @@ document.addEventListener('mousemove', e => {
     anillo.style.filter = `drop-shadow(${x}px ${y}px 20px orange)`;
   }
 });
+
 
 
 
